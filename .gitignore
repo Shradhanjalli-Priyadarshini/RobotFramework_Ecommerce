@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+test_env/
+venv/
+.env
+
+# Robot Framework results
+output.xml
+log.html
+report.html
+results/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Selenium screenshots
+selenium-screenshot-*.png
