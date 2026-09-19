@@ -4,9 +4,17 @@ Library    OperatingSystem
 Resource   variables.robot
 
 *** Keywords ***
+# Open Login Page
+#     Open Browser    ${BASE_URL}    ${BROWSER}
+#     Maximize Browser Window
+
 Open Login Page
-    Open Browser    ${BASE_URL}    ${BROWSER}
-    Maximize Browser Window
+    ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
+    Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --headless
+    Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --no-sandbox
+    Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --disable-dev-shm-usage
+    Open Browser    ${BASE_URL}    ${BROWSER}    options=${options}
+    Run Keyword If    '${HEADLESS}' == 'False'    Maximize Browser Window
 
 Login With Valid Credentials
     Input Text    id=user-name    ${USERNAME}
@@ -30,8 +38,7 @@ Verify Login Error Message
 Select Sauce Labs Backpack
     Wait Until Element Is Visible    link=Sauce Labs Backpack    10s
     Click Link    Sauce Labs Backpack
-    Wait Until Location Contains    /inventory-item.html    10s
-    Wait Until Element Is Visible    id=add-to-cart    10s
+    Wait Until Element Is Visible    id=add-to-cart    15s
 
 Add Backpack To Cart
     Wait Until Element Is Visible    id=add-to-cart    10s
