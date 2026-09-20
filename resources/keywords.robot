@@ -56,8 +56,8 @@ Open Shopping Cart
     Wait Until Location Contains    /cart.html    10s
 
 Verify Backpack In Cart
-    Wait Until Page Contains    Sauce Labs Backpack    15s
-    Page Should Contain    Sauce Labs Backpack
+    Wait Until Element Is Visible    css=.cart_item    20s
+    Element Should Contain    css=.cart_item    Sauce Labs Backpack
 
 Handle Password Popup
     ${os}=    Evaluate    platform.system()    platform
