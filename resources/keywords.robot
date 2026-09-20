@@ -9,11 +9,13 @@ Resource   variables.robot
 #     Maximize Browser Window
 
 Open Login Page
+    Close All Browsers
     ${options}=    Evaluate    sys.modules['selenium.webdriver'].ChromeOptions()    sys, selenium.webdriver
     Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --headless
     Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --no-sandbox
     Run Keyword If    '${HEADLESS}' == 'True'    Call Method    ${options}    add_argument    --disable-dev-shm-usage
     Open Browser    ${BASE_URL}    ${BROWSER}    options=${options}
+    Wait Until Element Is Visible    id=user-name    30s
     Run Keyword If    '${HEADLESS}' == 'False'    Maximize Browser Window
 
 Login With Valid Credentials
