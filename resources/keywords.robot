@@ -48,8 +48,22 @@ Select Sauce Labs Backpack
 Add Backpack To Cart
     Wait Until Page Contains Element    id=add-to-cart    20s
     Scroll Element Into View    id=add-to-cart
+    ${buttons}=    Get WebElements    tag=button
+    FOR    ${button}    IN    @{buttons}
+        ${text}=    Get Text    ${button}
+        ${id}=    Get Element Attribute    ${button}    id
+        Log    CART DEBUG: id=${id}, text=${text}
+    END
+    Capture Page Screenshot
     Click Element    id=add-to-cart
     Sleep    2s
+    ${buttons_after}=    Get WebElements    tag=button
+    FOR    ${button}    IN    @{buttons_after}
+        ${text}=    Get Text    ${button}
+        ${id}=    Get Element Attribute    ${button}    id
+        Log    AFTER CLICK: id=${id}, text=${text}
+    END
+    Capture Page Screenshot
     Wait Until Page Contains Element    id=remove    20s
 
 Verify Backpack Details
