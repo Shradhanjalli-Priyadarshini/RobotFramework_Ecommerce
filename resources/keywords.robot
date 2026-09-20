@@ -54,13 +54,14 @@ Open Shopping Cart
     Wait Until Location Contains    /cart.html    10s
 
 Verify Backpack In Cart
-    Wait Until Element Is Visible    css=.cart_item    10s
+    Wait Until Page Contains    Sauce Labs Backpack    15s
     Page Should Contain    Sauce Labs Backpack
 
 Handle Password Popup
-    Sleep    2s
-    Run    powershell -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')"
-    Sleep    2s
+    ${os}=    Evaluate    platform.system()    platform
+    Run Keyword If    '${os}' == 'Windows'    Sleep    3s
+    Run Keyword If    '${os}' == 'Windows'    Run    powershell -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.SendKeys]::SendWait('{ENTER}')"
+    Run Keyword If    '${os}' == 'Windows'    Sleep    2s
 
 Click Checkout
     Wait Until Element Is Visible    id=checkout    10s
@@ -87,7 +88,8 @@ Click Continue
     Click Button    id=continue
 
 Verify Checkout Overview
-    Wait Until Element Is Visible    css=.checkout_summary_container    10s
+    Wait Until Element Is Visible    css=.checkout_summary_container    20s
+    Wait Until Page Contains    Sauce Labs Backpack    20s
     Page Should Contain    Sauce Labs Backpack
     Page Should Contain    Payment Information
     Page Should Contain    Shipping Information

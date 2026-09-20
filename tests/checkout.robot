@@ -8,9 +8,9 @@ Complete Checkout
     Login With Valid Credentials
     Verify Products Page Is Displayed
     Select Sauce Labs Backpack
+    Handle Password Popup
     Add Backpack To Cart
     Open Shopping Cart
-    Handle Password Popup
     Verify Backpack In Cart
     Click Checkout
     Enter Checkout Information

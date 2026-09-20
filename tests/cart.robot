@@ -8,6 +8,7 @@ Verify Product Added To Cart
     Login With Valid Credentials
     Verify Products Page Is Displayed
     Select Sauce Labs Backpack
+    Handle Password Popup
     Add Backpack To Cart
     Open Shopping Cart
     Verify Backpack In Cart
