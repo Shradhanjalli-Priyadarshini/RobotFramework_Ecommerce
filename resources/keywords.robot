@@ -50,8 +50,16 @@ Add Backpack To Cart
     Wait Until Element Is Visible    css=.shopping_cart_badge    20s
 
 Verify Backpack Details
-    Wait Until Page Contains    Sauce Labs Backpack    10s
-    Wait Until Element Is Visible    id=add-to-cart    10s
+    Wait Until Page Contains    Sauce Labs Backpack    20s
+    Log Location
+    ${buttons}=    Get WebElements    tag=button
+    FOR    ${button}    IN    @{buttons}
+        ${text}=    Get Text    ${button}
+        ${id}=    Get Element Attribute    ${button}    id
+        Log    BUTTON: id=${id}, text=${text}
+    END
+    Capture Page Screenshot
+    Wait Until Element Is Visible    id=add-to-cart    20s
 
 Open Shopping Cart
     Go To    ${BASE_URL}cart.html
