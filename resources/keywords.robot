@@ -74,9 +74,11 @@ Handle Password Popup
 
 Click Checkout
     Wait Until Element Is Visible    id=checkout    10s
-    Click Element    id=checkout
-    Wait Until Element Is Visible    id=first-name    30s
-
+    Scroll Element Into View    id=checkout
+    ${button}=    Get WebElement    id=checkout
+    Execute Javascript    arguments[0].click();    ARGUMENTS    ${button}
+    Wait Until Page Contains Element    id=first-name    30s
+    
 Enter Checkout Information
     Input Text    id=first-name    Shradha
     Input Text    id=last-name    Priyadarshini
