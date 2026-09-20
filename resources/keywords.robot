@@ -46,7 +46,7 @@ Add Backpack To Cart
     Wait Until Page Contains Element    id=add-to-cart    20s
     Scroll Element Into View    id=add-to-cart
     Click Element    id=add-to-cart
-    Wait Until Page Contains Element    css=.shopping_cart_badge    20s
+    Wait Until Page Contains Element    id=remove    20s
 
 Verify Backpack Details
     Wait Until Page Contains    Sauce Labs Backpack    20s
