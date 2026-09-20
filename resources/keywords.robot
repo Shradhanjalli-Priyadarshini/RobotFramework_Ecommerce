@@ -43,9 +43,9 @@ Select Sauce Labs Backpack
     Wait Until Element Is Visible    id=add-to-cart    15s
 
 Add Backpack To Cart
-    Wait Until Element Is Visible    id=add-to-cart    10s
+    Wait Until Element Is Visible    id=add-to-cart    20s
     Click Element    id=add-to-cart
-    Sleep    1s
+    Wait Until Element Is Visible    css=.shopping_cart_badge    20s
 
 Verify Backpack Details
     Wait Until Page Contains    Sauce Labs Backpack    10s
