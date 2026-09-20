@@ -66,20 +66,9 @@ Handle Password Popup
 Click Checkout
     Wait Until Element Is Visible    id=checkout    10s
     Click Element    id=checkout
-    Sleep    3s
-    Log Location
-    Capture Page Screenshot
-
-# Click Checkout
-#     Wait Until Element Is Visible    id=checkout    10s
-#     Click Element    id=checkout
-#     Sleep    2s
+    Wait Until Element Is Visible    id=first-name    30s
 
 Enter Checkout Information
-    Sleep    3s
-    Log Location
-    Capture Page Screenshot
-    Wait Until Element Is Visible    id=first-name    20s
     Input Text    id=first-name    Shradha
     Input Text    id=last-name    Priyadarshini
     Input Text    id=postal-code    751001
